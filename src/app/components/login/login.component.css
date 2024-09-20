@@ -1,0 +1,41 @@
+.login-container {
+    background-color: #f8f9fa; 
+  }
+  
+  .card {
+    background-color: #fff; 
+    border: 1px solid #007bff; 
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #007bff; 
+  }
+  
+  button {
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+  .form-label {
+    font-weight: bold; 
+  }
+  
+  .form-control {
+    border-radius: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff; 
+    border: none;
+  }
+  
+  .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); 
+  }
+  

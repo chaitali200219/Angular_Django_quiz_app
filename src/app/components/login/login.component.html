@@ -1,0 +1,42 @@
+<div class="login-container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4" style="width: 400px; border: 1px solid #007bff; border-radius: 8px;">
+    <h2 class="text-center">Login</h2>
+
+    <form (ngSubmit)="onLogin()">
+      <!-- Username Field -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control" required>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+      </div>
+
+      <!-- User Type Selection -->
+      <div class="mb-3">
+        <label class="form-label">User Type</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="teacher" name="userType" value="teacher" [(ngModel)]="userType" class="form-check-input">
+            <label for="teacher" class="form-check-label">Teacher</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="student" name="userType" value="student" [(ngModel)]="userType" class="form-check-input">
+            <label for="student" class="form-check-label">Student</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <!-- Link to Register -->
+    <p class="mt-3 text-center">Not registered yet? 
+      <a routerLink="/register">Register</a>
+    </p>
+  </div>
+</div>
