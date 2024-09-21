@@ -3,6 +3,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../../environments/environment';
+
+const apiUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-register',
@@ -23,7 +26,7 @@ export class RegisterComponent {
   // Student form fields
   studentUsername: string = ''; 
   studentPassword: string = '';
-  grade: string = ''; //
+  grade: string = ''; 
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -47,7 +50,9 @@ export class RegisterComponent {
       experience_years: this.experienceYears
     };
 
-    this.http.post('http://localhost:8000/user/api/register/teacher/', teacherData).subscribe(
+    const teacherRegisterUrl = `${apiUrl}/user/api/register/teacher/`;
+
+    this.http.post(teacherRegisterUrl, teacherData).subscribe(
       (response) => {
         this.router.navigate(['/login']);
       },
@@ -68,7 +73,9 @@ export class RegisterComponent {
       grade: this.grade 
     };
 
-    this.http.post('http://localhost:8000/user/api/register/student/', studentData).subscribe(
+    const studentRegisterUrl = `${apiUrl}/user/api/register/student/`;
+
+    this.http.post(studentRegisterUrl, studentData).subscribe(
       (response) => {
         this.router.navigate(['/login']);
       },

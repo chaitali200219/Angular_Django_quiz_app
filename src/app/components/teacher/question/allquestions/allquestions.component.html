@@ -1,0 +1,34 @@
+<app-teacher-navbar></app-teacher-navbar>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Type</th>
+      <th>Marks</th>
+      <th>Created By</th>
+      <th>Options</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of questions">
+      <td>{{ question.content }}</td>
+      <td>{{ question.question_type }}</td> <!-- Display the type -->
+      <td>{{ question.marks }}</td> <!-- Display the marks -->
+      <td>{{ question.created_by }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let option of question.options">
+            {{ option.content }} <span *ngIf="option.is_correct">(Correct)</span>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <button class="btn btn-warning" (click)="editQuestion(question.id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteQuestion(question.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-teacher-footer></app-teacher-footer>

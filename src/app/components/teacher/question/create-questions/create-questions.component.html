@@ -1,0 +1,40 @@
+<app-teacher-navbar></app-teacher-navbar>
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="content">Question Content</label>
+    <input type="text" id="content" class="form-control" formControlName="content" required>
+  </div>
+
+  <div class="form-group">
+    <label for="questionType">Question Type</label>
+    <select id="questionType" class="form-control" formControlName="question_type" (change)="onQuestionTypeChange()">
+      <option value="MCQ">Multiple Choice</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select>
+  </div>
+
+  <div formArrayName="options">
+    <div *ngFor="let option of options.controls; let i = index" [formGroupName]="i" class="form-group">
+      <label for="option{{i}}">Option {{i + 1}}</label>
+      <input type="text" id="option{{i}}" class="form-control" formControlName="content" required>
+      <div>
+        <input type="checkbox" formControlName="is_correct"> Correct Answer
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="marks">Marks</label>
+    <input type="number" id="marks" class="form-control" formControlName="marks" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Question</button>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</form>
+
+<app-teacher-footer></app-teacher-footer>

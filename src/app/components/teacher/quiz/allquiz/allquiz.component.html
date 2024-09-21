@@ -1,0 +1,36 @@
+<app-teacher-navbar></app-teacher-navbar>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4">Quizzes</h2>
+
+  <div class="d-flex justify-content-center mb-3">
+    <button (click)="switchView('all')" [class.active]="view === 'all'" class="btn btn-primary mx-2">All</button>
+    <button (click)="switchView('completed')" [class.active]="view === 'completed'" class="btn btn-secondary mx-2">Completed</button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Quiz Name</th>
+        <th>Duration (min)</th>
+        <th>Marks</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quiz of filteredQuizzes">
+        <td>{{ quiz.title }}</td>
+        <td>{{ quiz.duration }}</td>
+        <td>{{ quiz.marks }}</td>
+        <td>{{ quiz.status ? 'Active' : 'Inactive' }}</td>
+        <td>
+          <button *ngIf="view === 'all' && quiz.status" (click)="attemptQuiz(quiz.id)" class="btn btn-success">Attempt Quiz</button>
+          <button *ngIf="view === 'completed' && !quiz.status" (click)="viewResult(quiz.id)" class="btn btn-info">View Result</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-teacher-footer></app-teacher-footer>

@@ -1,0 +1,34 @@
+<app-teacher-navbar></app-teacher-navbar>
+<div class="container mt-5">
+    <h2>Create Quiz</h2>
+    <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Quiz Title:</label>
+        <input id="title" formControlName="title" type="text" class="form-control" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration (in minutes):</label>
+        <input id="duration" formControlName="duration" type="number" class="form-control" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+        <select id="status" formControlName="status" class="form-select">
+          <option [value]="true">Active</option>
+          <option [value]="false">Inactive</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="questions" class="form-label">Select Questions:</label>
+        <select id="questions" formControlName="questions" multiple class="form-select">
+          <option *ngFor="let question of questions" [value]="question.id">{{ question.content }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Create Quiz</button>
+    </form>
+  </div>
+  
+<app-teacher-footer></app-teacher-footer>

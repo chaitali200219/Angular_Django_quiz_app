@@ -1,0 +1,38 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .table th, .table td {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+  
+  .btn.active {
+    font-weight: bold;
+    background-color: #0056b3 !important; /* Darker blue for active button */
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  

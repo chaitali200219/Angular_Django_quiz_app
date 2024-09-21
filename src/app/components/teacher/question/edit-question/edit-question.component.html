@@ -1,0 +1,40 @@
+<app-teacher-navbar></app-teacher-navbar>
+
+<div class="container mt-5">
+  <h2>Edit Question</h2>
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="content" class="form-label">Content:</label>
+      <input id="content" formControlName="content" type="text" class="form-control" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="marks" class="form-label">Marks:</label>
+      <input id="marks" formControlName="marks" type="number" class="form-control" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="option1" class="form-label">Option 1:</label>
+      <input id="option1" formControlName="option1" type="text" class="form-control" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="option2" class="form-label">Option 2:</label>
+      <input id="option2" formControlName="option2" type="text" class="form-control" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="option3" class="form-label">Option 3:</label>
+      <input id="option3" formControlName="option3" type="text" class="form-control" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="option4" class="form-label">Option 4:</label>
+      <input id="option4" formControlName="option4" type="text" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Question</button>
+  </form>
+</div>
+
+<app-teacher-footer></app-teacher-footer>
